@@ -6182,15 +6182,14 @@ export default function (context, pluginCallButtons, plugins, lang, options, _re
 
             this.history.reset(true);
             
-            _w.setTimeout(function () {
-                // observer
-                if (event._resizeObserver) event._resizeObserver.observe(context.element.wysiwygFrame);
-                if (event._toolbarObserver) event._toolbarObserver.observe(context.element._toolbarShadow);
-                // resource state
-                core._resourcesStateChange();
-                // user event
-                if (typeof functions.onload === 'function') functions.onload(core, reload);
-            });
+            // observer
+            if (event._resizeObserver) event._resizeObserver.observe(context.element.wysiwygFrame);
+            if (event._toolbarObserver) event._toolbarObserver.observe(context.element._toolbarShadow);
+            // resource state
+            core._resourcesStateChange();
+            // user event
+            if (typeof functions.onload === 'function') functions.onload(core, reload);
+
         },
 
         /**
